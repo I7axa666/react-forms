@@ -1,0 +1,51 @@
+ul {
+  list-style: none;
+}
+
+form {
+  display: flex;
+  align-items: flex-end;
+  margin-left: 40px;
+}
+
+input {
+  height: 30px;
+}
+
+.sendBtn {
+  height: 40px;
+}
+
+.distance {
+  margin-left: 20px;
+}
+
+.results {
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+}
+
+ul {
+  min-height: 20px;
+
+  margin: 0;
+  padding: 0;
+
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editBtn, .deleteBtn {
+  width: 20px;
+}
