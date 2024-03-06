@@ -1,5 +1,5 @@
-export default function Results ({resultData}) {
-  // console.log(resultData)
+export default function Results ({resultData, changeInputValue}) {
+  // console.log(changeInputValue)
   const del = (event) => {
     event.preventDefault()
     event.target.closest('li').remove()
@@ -10,8 +10,8 @@ export default function Results ({resultData}) {
     const idDate = event.target.closest('li').id
     const editDate = resultData[idDate].inputDate
     const editDistance = resultData[idDate].inputDistance
-    resultData[0].myFunc(editDate, editDistance)
-    event.target.closest('li').remove()
+    changeInputValue(editDate, editDistance)
+    // event.target.closest('li').remove()
   }
   
   return (
