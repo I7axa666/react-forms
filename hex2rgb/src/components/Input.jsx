@@ -20,7 +20,7 @@ export default function Input() {
     if (colorRGB) {
     setColor(color => ({...color, rgb: colorRGB, color: colorRGB}))
     } else {
-    setColor(color => ({...color, rgb: 'Ошибка', color: 'rgb(255, 255, 255)'}))
+    setColor(color => ({...color, rgb: 'Ошибка!', color: 'rgb(255, 0, 0)'}))
     }
   } 
   
@@ -30,7 +30,7 @@ export default function Input() {
 
   return (
     <div className='container'>
-      <input type="text" onChange={onChange}/>
+      <input type="text" placeholder='Введите HEX' onChange={onChange}/>
       <div className='validator'>
         <p>{color.rgb}</p>
       </div>

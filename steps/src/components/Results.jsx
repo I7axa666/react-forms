@@ -1,17 +1,25 @@
-export default function Results ({resultData, changeInputValue}) {
-  // console.log(changeInputValue)
+import dateConverter from "../utilits/dateConverter";
+
+export default function Results ({resultData, changeInputValue, setRes}) {
+  
   const del = (event) => {
     event.preventDefault()
-    event.target.closest('li').remove()
+    const delitedDateIndex = event.target.closest('li').id
+    resultData.splice(delitedDateIndex, 1)
+    setRes([...resultData])
+    // event.target.closest('li').remove()
   }
 
   const edit = (event) => {
     event.preventDefault()
     const idDate = event.target.closest('li').id
-    const editDate = resultData[idDate].inputDate
+    if (!idDate) {return}
+    const editDate = dateConverter(resultData[idDate].inputDate)
+
     const editDistance = resultData[idDate].inputDistance
     changeInputValue(editDate, editDistance)
-    // event.target.closest('li').remove()
+    resultData.splice(idDate, 1)
+    setRes([...resultData])
   }
   
   return (
@@ -25,7 +33,7 @@ export default function Results ({resultData, changeInputValue}) {
         <ul>
           {resultData.map((item, index) => (
             <li key={index} id={index}>
-              <p>{item.inputDate}</p>
+              <p>{dateConverter(item.inputDate, 1)}</p>
               <p>{item.inputDistance}</p>
               <div>
                 <button className='editBtn' onClick={edit}>✎</button>
